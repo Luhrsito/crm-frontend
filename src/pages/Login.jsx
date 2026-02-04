@@ -5,7 +5,7 @@ export default function Login({ onLogin }) {
   const [password, setPassword] = useState("");
   const [err, setErr] = useState("");
 
-  function submit() {
+ function submit() {
   const API = import.meta.env.VITE_API_URL;
 
   fetch(`${API}/api/auth/login`, {
@@ -17,6 +17,9 @@ export default function Login({ onLogin }) {
     .then(onLogin)
     .catch(() => setErr("Credenciales inválidas"));
 }
+
+
+console.log("API:", import.meta.env.VITE_API_URL);
 
 
   return (

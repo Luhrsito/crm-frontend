@@ -4,7 +4,7 @@ export default function Conversations() {
   const [list, setList] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/api/conversations")
+    fetch(`${import.meta.env.VITE_API_URL}/api/conversations`)
       .then(r => r.json())
       .then(setList);
   }, []);

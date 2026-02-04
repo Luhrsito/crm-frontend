@@ -1,7 +1,7 @@
 import React,{useEffect,useState} from "react";
 export default function Campaigns(){
  const [c,setC]=useState([]);
- useEffect(()=>{fetch("http://localhost:4000/api/campaigns").then(r=>r.json()).then(setC)},[]);
+ useEffect(()=>{fetch(`${import.meta.env.VITE_API_URL}/api/campaigns`).then(r=>r.json()).then(setC)},[]);
  return(
   <div className="grid">
    {c.map(x=>(

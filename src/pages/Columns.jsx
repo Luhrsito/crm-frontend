@@ -11,7 +11,7 @@ function Item({id}){
 
 export default function Columns(){
  const [cols,setCols]=useState({});
- useEffect(()=>{fetch("http://localhost:4000/api/columns").then(r=>r.json()).then(setCols)},[]);
+ useEffect(()=>{fetch(`${import.meta.env.VITE_API_URL}/api/columns`).then(r=>r.json()).then(setCols)},[]);
 
  return(
   <div style={{display:"flex",gap:20}}>

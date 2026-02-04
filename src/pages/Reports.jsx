@@ -7,7 +7,7 @@ export default function Reports(){
  const [stats,setStats]=useState(null);
 
  useEffect(()=>{
-  fetch("http://localhost:4000/api/reports/stats")
+  fetch(`${import.meta.env.VITE_API_URL}/api/reports/stats`)
    .then(r=>r.json()).then(setStats);
  },[]);
 
