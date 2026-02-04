@@ -6,15 +6,18 @@ export default function Login({ onLogin }) {
   const [err, setErr] = useState("");
 
   function submit() {
-    fetch("http://localhost:4000/api/auth/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password })
-    })
-      .then(r => (r.ok ? r.json() : Promise.reject()))
-      .then(onLogin)
-      .catch(() => setErr("Credenciales inválidas"));
-  }
+  const API = import.meta.env.VITE_API_URL;
+
+  fetch(`${API}/api/auth/login`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, password })
+  })
+    .then(r => (r.ok ? r.json() : Promise.reject()))
+    .then(onLogin)
+    .catch(() => setErr("Credenciales inválidas"));
+}
+
 
   return (
     <div className="login">
